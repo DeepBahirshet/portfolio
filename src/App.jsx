@@ -255,10 +255,17 @@ function App() {
           <motion.div className="hero-content" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
             <div className="eyebrow"><span className="dot" /> FULL-STACK DEVELOPER</div>
             <div className="gravity-title">
-              <motion.h1 className="deep-word" initial={{ opacity: 0, y: -14, filter: "blur(4px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.9, delay: 0.1 }}>DEEP</motion.h1>
-              <div className="letter-reflection" />
-              <div className="gravity-shadow" />
-            </div>
+  <motion.h1
+    className="deep-word"
+    initial={{ opacity: 0, y: -14, filter: "blur(4px)" }}
+    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+    transition={{ duration: 0.9, delay: 0.1 }}
+  >
+    DEEP
+  </motion.h1>
+  <div className="letter-reflection" />
+  <div className="gravity-shadow" />
+</div>
             <motion.h2 className="surname" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.45 }}>BAHIRSHET</motion.h2>
             <motion.div className="hero-role" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>FULL-STACK DEVELOPER</motion.div>
             <motion.p className="hero-tagline" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}>
