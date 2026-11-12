@@ -2,6 +2,7 @@ import { useEffect, useRef, useState  } from "react";
 import { motion } from "motion/react";
 import "./index.css";
 import { Download, MessageCircle, ArrowUpRight } from "lucide-react";
+import { FaLinkedinIn, FaGithub, FaEnvelope } from "react-icons/fa";
 
 const COLS = 34;
 const ROWS = 20;
@@ -408,7 +409,7 @@ function App() {
           <div className="about-buttons">
             <a
               href="/Deep-Bahirshet-Resume.pdf"
-              download
+              download="Deep-Bahirshet-Resume.pdf"
               className="about-btn primary-btn"
             >
               <Download size={17} />
@@ -538,17 +539,48 @@ function App() {
       <span>{name}</span>
     </motion.div>
   ))}
-</div>
-        </section>
+      </div>
+              </section>
 
-        <section className="section contact-section" id="contact">
-          <SectionHeading label="GET IN TOUCH" title={<>Let's Build Something <span>Meaningful</span></>} subtitle="Have a project idea or an opportunity? I'd love to hear from you." />
-          <div className="contact-actions">
-            <a className="primary-button" href="mailto:your-email@example.com">Send Me a Message </a>
-            <a className="social-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
-            <a className="social-link" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">⌘</a>
-            <a className="social-link" href="mailto:your-email@example.com" aria-label="Email">✉</a>
-          </div>
+              <section className="section contact-section" id="contact">
+                <SectionHeading label="GET IN TOUCH" title={<>Let's Build Something <span>Meaningful</span></>} subtitle="Have a project idea or an opportunity? I'd love to hear from you." />
+                <div className="contact-actions">
+        <a
+          className="primary-button"
+          href="mailto:deepbahirshet2@gmail.com"
+        >
+          <FaEnvelope />
+          Send Me a Message
+        </a>
+
+        <a
+          className="social-link"
+          href="https://www.linkedin.com/in/deep-bahirshet/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <FaLinkedinIn />
+        </a>
+
+        <a
+          className="social-link"
+          href="https://github.com/deepbahirshet3"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
+          <FaGithub />
+        </a>
+
+        <a
+          className="social-link"
+          href="mailto:deepbahirshet2@gmail.com"
+          aria-label="Email"
+        >
+          <FaEnvelope />
+        </a>
+      </div>
         </section>
 
         {/* <footer className="footer">
