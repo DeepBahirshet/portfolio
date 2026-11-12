@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState  } from "react";
 import { motion } from "motion/react";
 import "./index.css";
 import { Download, MessageCircle, ArrowUpRight } from "lucide-react";
@@ -205,44 +205,131 @@ function MeshBackground() {
 const projects = [
   {
     id: "zervo",
-    title: "Zervo – Requirement & Application Platform",
+    title: "Zervo – AI-Powered Project Platform",
     category: "AI-powered platform",
-    description: "An AI-powered job and requirement platform built with Python FastAPI microservices. Users can post requirements, discover opportunities, apply, and manage applications.",
-    tags: ["Python", "FastAPI", "AI", "Microservices"],
+    description:
+      "An AI-powered platform connecting clients with service providers through project posting, application management, project tracking, and intelligent AI-driven applicant evaluation.",
+    tags: [
+      "Laravel 12",
+      "Vue.js 3",
+      "Python",
+      "FastAPI",
+      "PostgreSQL",
+      "LLM Integration",
+      "AI Agents",
+    ],
     preview: "zervo",
   },
-  {
-    id: "organic",
-    title: "Organic Mart – E-Commerce",
-    category: "E-commerce",
-    description: "An e-commerce platform for organic products with product-level and item-level offers, analytics integration, and a clean, mobile-friendly shopping experience.",
-    tags: ["Laravel", "Vue.js", "MySQL"],
-    preview: "organic",
-  },
-  {
-    id: "perfex",
-    title: "Perfex CRM Customization",
-    category: "CRM development",
-    description: "Customized CRM workflows including SLA email logic via cron, autoclose compatibility, agent filters, and DataTables enhancements.",
-    tags: ["CodeIgniter", "JavaScript", "jQuery", "Cron"],
-    preview: "perfex",
-  },
-  {
-    id: "creators",
-    title: "Platform for Creators",
-    category: "Creator platform",
-    description: "A creator-focused platform to build a profile, showcase creative work, discover collaboration opportunities, and connect with brands.",
-    tags: ["React", "Vue.js", "Node.js", "Express"],
-    preview: "creators",
-  },
+{
+  id: "organic",
+  title: "Organic Mart – E-Commerce",
+  category: "E-commerce platform",
+  description:
+    "An organic products e-commerce platform with product and order management, promotional offers, automated cron jobs, REST APIs for mobile application integration, and online payment processing through Razorpay and PhonePe.",
+  tags: [
+    "Laravel",
+    "PHP",
+    "MySQL",
+    "REST APIs",
+    "Cron Jobs",
+    "Razorpay",
+    "PhonePe"
+  ],
+  preview: "organic",
+},
+{
+  id: "perfex",
+  title: "Perfex CRM Customization",
+  category: "CRM development",
+  description:
+    "Enhanced Perfex CRM with queue-based background processing, Microsoft Graph API integration, IMAP email handling using OAuth 2.0, and role-based access control.",
+  tags: [
+    "CodeIgniter",
+    "PHP",
+    "Queue Jobs",
+    "Microsoft Graph API",
+    "IMAP",
+    "OAuth 2.0",
+    "RBAC"
+  ],
+  preview: "perfex",
+},
+{
+  id: "creators",
+  title: "Platform for Creators",
+  category: "Theatre & Creator Platform",
+  description:
+    "A theatre platform enabling companies to publish shows, manage schedules, and connect with creators through participation opportunities, rewards, and integrated chat.",
+  tags: [
+    "Laravel",
+    "PHP",
+    "Vue.js",
+    "PostgreSQL",
+    "Stripe",
+    "REST APIs",
+    "In-App Messaging"
+  ],
+  preview: "creators",
+},
 ];
 
+import {
+  SiLaravel,
+  SiPhp,
+  SiVuedotjs,
+  SiReact,
+  SiNodedotjs,
+  SiExpress,
+  SiPython,
+  SiFastapi,
+  SiDjango,
+  SiPostgresql,
+  SiMysql,
+  SiRedis,
+  SiTailwindcss,
+  SiDocker,
+  SiGit,
+} from "react-icons/si";
+
+import { FaAws } from "react-icons/fa";
+
 const technologies = [
-  ["Laravel", "◆"], ["PHP", "php"], ["Vue.js", "V"], ["React", "⚛"],
-  ["Node.js", "JS"], ["Express", "ex"], ["Python", "Py"], ["FastAPI", "API"],
-  ["Django", "dj"], ["PostgreSQL", "PG"], ["MySQL", "SQL"], ["Redis", "R"],
-  ["AWS", "aws"], ["Tailwind CSS", "≈"], ["Docker", "▣"], ["Git", "⌘"],
+  ["Laravel", SiLaravel],
+  ["PHP", SiPhp],
+  ["Vue.js", SiVuedotjs],
+  ["React", SiReact],
+  ["Node.js", SiNodedotjs],
+  ["Express", SiExpress],
+  ["Python", SiPython],
+  ["FastAPI", SiFastapi],
+  ["Django", SiDjango],
+  ["PostgreSQL", SiPostgresql],
+  ["MySQL", SiMysql],
+  ["Redis", SiRedis],
+  ["AWS", FaAws],
+  ["Tailwind CSS", SiTailwindcss],
+  ["Docker", SiDocker],
+  ["Git", SiGit],
 ];
+
+const techColors = {
+  Laravel: "#FF2D20",
+  PHP: "#777BB4",
+  "Vue.js": "#42B883",
+  React: "#61DAFB",
+  "Node.js": "#68A063",
+  Express: "#E5E7EB",
+  Python: "#3776AB",
+  FastAPI: "#009688",
+  Django: "#44B78B",
+  PostgreSQL: "#4169E1",
+  MySQL: "#4479A1",
+  Redis: "#DC382D",
+  AWS: "#FF9900",
+  "Tailwind CSS": "#38BDF8",
+  Docker: "#2496ED",
+  Git: "#F05032",
+};
 
 function App() {
   return (
@@ -279,7 +366,7 @@ function App() {
         </section>
 
         <motion.section className="stats" initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-          <Stat number="2.5+" label="Years Experience" />
+          <Stat number="3+" label="Years Experience" />
           <Stat number="15+" label="Projects Completed" />
           <Stat number="16+" label="Technologies" />
           <Stat number="100%" label="Commitment" />
@@ -307,7 +394,7 @@ function App() {
           </h2>
 
           <p>
-            I'm a Full-Stack Developer with 2.5+ years of experience
+            I'm a Full-Stack Developer with 3+ years of experience
             building scalable web applications using Laravel, Vue.js,
             React, Node.js and modern web technologies.
           </p>
@@ -326,7 +413,7 @@ function App() {
             >
               <Download size={17} />
               Download Resume
-              <ArrowUpRight size={15} />
+             
             </a>
 
             <a
@@ -351,7 +438,7 @@ function App() {
 
           <div className="about-image-frame">
             <img
-              src="/images/deep-profile.jpg"
+              src="/images/deep-profile.png"
               alt="Deep Bahirshet - Full Stack Developer"
               className="about-profile-image"
             />
@@ -359,15 +446,15 @@ function App() {
             <div className="image-overlay" />
 
             <div className="image-caption">
-              <span className="caption-status" />
+              {/* <span className="caption-status" /> */}
 
               <div>
                 <h3>Deep Bahirshet</h3>
                 <p>Full-Stack Developer</p>
               </div>
 
-              <span className="caption-icon">
-                <ArrowUpRight size={18} />
+             <span className="caption-icon">
+                <span className="status-pulse"></span>
               </span>
             </div>
           </div>
@@ -385,57 +472,194 @@ function App() {
 
         <section className="section experience-section" id="experience">
           <SectionHeading label="EXPERIENCE" title={<>My Professional <span>Journey</span></>} subtitle="A quick look at my professional experience and responsibilities." />
-          <div className="timeline">
-            <Experience initials="BT" company="Biyani Technologies" role="Full Stack Developer" dates="Jul 2026 – Present" description="Working on PHP, WordPress, SEO, and Next.js website development." />
-            <Experience initials="M" company="Mobifilia Software India LLP" role="Software Engineer" dates="Jan 2026 – Jul 2026" description="Worked on Laravel-based web applications, REST APIs, and feature development." />
-            <Experience initials="R" company="Reapmind Technologies" role="Full Stack Developer" dates="Mar 2023 – Dec 2025" description="Developed and maintained web applications using Laravel, PHP, and MySQL." />
-          </div>
+          <motion.div
+            className="timeline"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <motion.div
+              className="timeline-progress"
+              variants={{
+                hidden: { scaleY: 0 },
+                visible: {
+                  scaleY: 1,
+                  transition: {
+                    duration: 2,
+                    ease: "easeInOut",
+                  },
+                },
+              }}
+            />
+
+            <Experience
+              index={0}
+              initials="BT"
+              company="Biyani Technologies"
+              role="Full Stack Developer"
+              dates="Jul 2026 – Present"
+              description="Building applications with Laravel, React.js, Next.js, and REST APIs."
+            />
+
+            <Experience
+              index={1}
+              initials="M"
+              company="Mobifilia Software India LLP"
+              role="Software Engineer"
+              dates="Jan 2026 – Jul 2026"
+              description="Worked with Laravel, Vue.js, payment integrations, and performance optimization."
+            />
+
+            <Experience
+              index={2}
+              initials="R"
+              company="Reapmind Technologies"
+              role="Full Stack Developer"
+              dates="Mar 2023 – Dec 2025"
+            description="Developed applications using Laravel, CodeIgniter, MySQL, Node.js, and Express.js."
+            />
+          </motion.div>
         </section>
 
         <section className="section skills-section" id="skills">
           <SectionHeading label="TECHNOLOGIES" title={<>My Technical <span>Toolbox</span></>} subtitle="Technologies I use to build, ship, and maintain web applications." />
-          <div className="tech-grid">
-            {technologies.map(([name, icon], index) => (
-              <motion.div className="tech-card" key={name} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: (index % 8) * 0.035 }} whileHover={{ y: -5 }}>
-                <strong>{icon}</strong><span>{name}</span>
-              </motion.div>
-            ))}
-          </div>
+         <div className="tech-grid">
+  {technologies.map(([name, Icon]) => (
+    <motion.div
+      className="tech-card"
+      key={name}
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.2 }}
+    >
+      <Icon
+  className="tech-icon"
+  style={{ color: techColors[name] }}
+/>
+      <span>{name}</span>
+    </motion.div>
+  ))}
+</div>
         </section>
 
         <section className="section contact-section" id="contact">
           <SectionHeading label="GET IN TOUCH" title={<>Let's Build Something <span>Meaningful</span></>} subtitle="Have a project idea or an opportunity? I'd love to hear from you." />
           <div className="contact-actions">
-            <a className="primary-button" href="mailto:your-email@example.com">Send Me a Message <span>→</span></a>
+            <a className="primary-button" href="mailto:your-email@example.com">Send Me a Message </a>
             <a className="social-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn">in</a>
             <a className="social-link" href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub">⌘</a>
             <a className="social-link" href="mailto:your-email@example.com" aria-label="Email">✉</a>
           </div>
         </section>
 
-        <footer className="footer">
+        {/* <footer className="footer">
           <a className="logo" href="#home">DB</a>
           <span>Designed & built with care.</span>
           <a href="#home">Back to top ↑</a>
-        </footer>
+        </footer> */}
       </div>
     </main>
   );
 }
 
 function Header() {
+  const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+    let animationFrame;
+
+    const updateActiveSection = () => {
+  const sections = [
+    "home",
+    "about",
+    "projects",
+    "experience",
+    "skills",
+    "contact",
+  ];
+
+  const scrollPosition =
+    window.scrollY + window.innerHeight * 0.35;
+
+  // At the bottom of the page, always activate Contact.
+  const isAtBottom =
+    window.innerHeight + window.scrollY >=
+    document.documentElement.scrollHeight - 5;
+
+  if (isAtBottom) {
+    setActiveSection("contact");
+    return;
+  }
+
+  let currentSection = "home";
+
+  sections.forEach((id) => {
+    const section = document.getElementById(id);
+
+    if (
+      section &&
+      section.getBoundingClientRect().top <=
+        window.innerHeight * 0.35
+    ) {
+      currentSection = id;
+    }
+  });
+
+  setActiveSection(currentSection);
+};
+
+    const handleScroll = () => {
+      cancelAnimationFrame(animationFrame);
+      animationFrame = requestAnimationFrame(updateActiveSection);
+    };
+
+    updateActiveSection();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
+  const navLinks = [
+    { label: "Home", id: "home" },
+    { label: "About", id: "about" },
+    { label: "Projects", id: "projects" },
+    { label: "Experience", id: "experience" },
+    { label: "Skills", id: "skills" },
+    { label: "Contact", id: "contact" },
+  ];
+
   return (
-    <motion.header className="navbar" initial={{ opacity: 0, y: -15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-      <a className="logo" href="#home" aria-label="Home">DB</a>
+    <motion.header
+      className="navbar"
+      initial={{ opacity: 0, y: -15 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7 }}
+    >
+      <a className="logo" href="#home" aria-label="Home">
+        DB
+      </a>
+
       <nav aria-label="Main navigation">
-        <a className="active" href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+        {navLinks.map((link) => (
+          <a
+            key={link.id}
+            href={`#${link.id}`}
+            className={activeSection === link.id ? "active" : ""}
+            aria-current={activeSection === link.id ? "location" : undefined}
+          >
+            {link.label}
+          </a>
+        ))}
       </nav>
-      <a className="talk-button" href="#contact">Let's Talk</a>
+
+      <a className="talk-button" href="#contact">
+        Let's Talk
+      </a>
     </motion.header>
   );
 }
@@ -498,12 +722,41 @@ function ProjectPreview({ type }) {
   );
 }
 
-function Experience({ initials, company, role, dates, description }) {
+function Experience({ initials, company, role, dates, description, index = 0 }) {
   return (
-    <motion.div className="experience-item" initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-      <div className="timeline-node" />
+    <motion.div
+      className="experience-item"
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.2,
+        ease: "easeOut",
+      }}
+    >
+      <div className="timeline-node">
+        <motion.span
+          className="timeline-node-fill"
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.5,
+            delay: index * 0.2 + 0.3,
+            ease: "backOut",
+          }}
+        />
+      </div>
+
       <div className="company-mark">{initials}</div>
-      <div className="experience-copy"><h3>{company}</h3><span>{role}</span><p>{description}</p></div>
+
+      <div className="experience-copy">
+        <h3>{company}</h3>
+        <span>{role}</span>
+        <p>{description}</p>
+      </div>
+
       <time>{dates}</time>
     </motion.div>
   );
