@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState  } from "react";
 import { motion } from "motion/react";
 import "./index.css";
-import { Download, MessageCircle, ArrowUpRight } from "lucide-react";
+import { Download, MessageCircle, ExternalLink, Globe } from "lucide-react";
 import { FaLinkedinIn, FaGithub, FaEnvelope } from "react-icons/fa";
 
 const COLS = 34;
@@ -220,6 +220,7 @@ const projects = [
       "AI Agents",
     ],
     preview: "zervo",
+    liveUrl: "https://zervo-kcf0.onrender.com/",
   },
 {
   id: "organic",
@@ -722,6 +723,25 @@ function ProjectCard({ project, index }) {
         <h3>{project.title}</h3>
         <p>{project.description}</p>
         <div className="project-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
+        <div className="project-live-link-wrapper">
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-live-link"
+            >
+              <span className="live-link-icon">
+                <Globe size={17} />
+              </span>
+
+              <span className="live-link-text">
+                <strong>Explore Live Project</strong>
+                <small>View deployed application</small>
+              </span>
+            </a>
+          )}
+        </div>
       </div>
     </motion.article>
   );
